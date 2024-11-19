@@ -6,11 +6,14 @@ from config import *
 
 class VagasMonitor:
     def __init__(self):
-        self.cache_file = Path('vagas_cache.json')
+        self.cache_file = Path('data/vagas_cache.json')
         self.cached_data = self.load_cache()
         self.twilio_client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
     def load_cache(self):
+        # Create data directory if it doesn't exist
+        self.cache_file.parent.mkdir(parents=True, exist_ok=True)
+        
         if self.cache_file.exists():
             with open(self.cache_file, 'r', encoding='utf-8') as f:
                 return json.load(f)

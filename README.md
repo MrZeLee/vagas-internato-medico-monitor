@@ -70,6 +70,24 @@ docker build -t your-registry/vagas-monitor:latest .
 docker push your-registry/vagas-monitor:latest
 ```
 
+3. Run with docker:
+
+```bash
+docker run \
+-e TWILIO_ACCOUNT_SID="$TWILIO_ACCOUNT_SID" \
+-e TWILIO_AUTH_TOKEN="$TWILIO_AUTH_TOKEN" \
+-e TWILIO_MESSAGING_SERVICE_SID="$TWILIO_MESSAGING_SERVICE_SID" \
+-e TWILIO_TO_NUMBER="$TWILIO_TO_NUMBER" \
+-v $(pwd)/data:/app/data
+your-registry/vagas-monitor
+```
+
+or
+
+```bash
+docker run --env-file=.env -v $(pwd)/data:/app/data vagas-monitor
+```
+
 ### Kubernetes Deployment
 
 1. Update the secrets in `k8s-cronjob.yaml` with your Twilio credentials

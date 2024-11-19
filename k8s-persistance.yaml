@@ -29,7 +29,7 @@ spec:
                 name: vagas-monitor-secrets
             volumeMounts:
             - name: cache-volume
-              mountPath: /app/cache
+              mountPath: /app/data
           volumes:
           - name: cache-volume
             persistentVolumeClaim:
