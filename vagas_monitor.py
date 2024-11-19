@@ -69,14 +69,17 @@ class VagasMonitor:
 
 def main():
     import sys
+    
     monitor = VagasMonitor()
     
     if len(sys.argv) > 1 and sys.argv[1] == 'test':
-        print("Sending test notification...")
+        print(f"Sending test notification...")
         monitor.send_notification("test", "test", "test")
-        print("Test notification sent!")
+        print(f"Test notification sent!")
     else:
+        print(f"Checking for vacancy updates...")
         monitor.check_vagas()
+        print(f"Check completed")
 
 if __name__ == "__main__":
     main()

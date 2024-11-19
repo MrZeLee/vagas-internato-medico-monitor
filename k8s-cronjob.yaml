@@ -16,14 +16,3 @@ spec:
             - secretRef:
                 name: vagas-monitor-secrets
           restartPolicy: OnFailure
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: vagas-monitor-secrets
-type: Opaque
-stringData:
-  TWILIO_ACCOUNT_SID: "your-account-sid"
-  TWILIO_AUTH_TOKEN: "your-auth-token"
-  TWILIO_MESSAGING_SERVICE_SID: "your-messaging-service-sid"
-  TWILIO_TO_NUMBER: "your-phone-number"

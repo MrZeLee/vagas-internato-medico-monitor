@@ -90,11 +90,12 @@ docker run --env-file=.env -v $(pwd)/data:/app/data vagas-monitor
 
 ### Kubernetes Deployment
 
-1. Update the secrets in `k8s-cronjob.yaml` with your Twilio credentials
+1. Update the secrets in `k8s-secrets.yaml` with your Twilio credentials
 
 2. Apply the Kubernetes manifests:
 ```bash
-kubectl apply -f k8s-cronjob.yaml
+kubectl apply -f k8s-secrets.yaml
+kubectl apply -f k8s-cronjob.yaml # If using the no_cron.Dockerfile
 kubectl apply -f k8s-persistence.yaml  # If using persistence
 ```
 
